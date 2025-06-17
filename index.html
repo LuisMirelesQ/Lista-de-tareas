@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="./style2.css"> 
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor">
+        <p>Lista de tareas</p>
+        <button  id="add">Añadir tarea</button>
+        <button  id="del">Eliminar tarea</button>
+    </div>
+    <section id="contenedor2">
+    </section>
+</body>
+ <style>
+#contenedor2{
+    width: 100%;
+    background-color: rgb(167, 169, 243);
+    border: 3px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+
+}
+#contenedor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(167, 169, 243);
+}
+.tarea{
+    width: 8%;
+    height: 8%;
+    padding: 2%;
+    border: 3px solid black;
+    background-color: rgb(224, 125, 224);
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    font-weight: bold;
+}
+ </style>
+ <script>
+    let n = 1;
+    add = document.getElementById("add");
+    del = document.getElementById("del");
+    contenedor = document.getElementById("contenedor2");
+    add.addEventListener("click", () =>{
+        tarea = `<div class="tarea" id="tarea${n}">Tarea</div>`;
+        contenedor.innerHTML += tarea;
+        n++;
+        console.log(contenedor.childNodes);
+    });
+    del.addEventListener('click', function() {
+      if (contenedor.lastChild) {
+        contenedor.removeChild(contenedor.lastChild); 
+      }
+    });
+ </script>
+</html>
 
